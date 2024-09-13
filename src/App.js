@@ -40,7 +40,7 @@ function App() {
 
     return (
         <div>
-            <h1>App Integrado com BR24</h1>
+            <h1>Grande teste</h1>
         </div>
     );
 }
