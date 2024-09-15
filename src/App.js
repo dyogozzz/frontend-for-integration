@@ -1,9 +1,17 @@
 import './App.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
 import CompanyForm from './components/CompanyForm';
+import CompanyList from './components/CompanyList';
 
 function App() {
+    const [companies, setCompanies] = useState([]);
+
+    const handleAddCompany = (newCompany) => {
+      setCompanies([...companies, newCompany]);
+    };
+  
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search);
         const domain = queryParams.get('DOMAIN');
@@ -17,9 +25,8 @@ function App() {
     return (
         <div>
             <h1>Grande teste</h1>
-            <CompanyForm>
-                
-            </CompanyForm>
+            <CompanyForm onAddCompany={handleAddCompany} />
+            <CompanyList companies={companies} />
         </div>
     );
 }
