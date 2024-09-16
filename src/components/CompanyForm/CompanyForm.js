@@ -4,7 +4,7 @@ const CompanyForm = ({ onAddCompany }) => {
   const [formData, setFormData] = useState({
     companyName: "",
     email: "",
-    phone: ""
+    contacts: [{},{}]
   });
 
   const handleChange = (e) => {
@@ -24,7 +24,7 @@ const CompanyForm = ({ onAddCompany }) => {
       setFormData({
         companyName: "",
         email: "",
-        phone: ""
+        contacts: [{name: '', surname: ''},{name: '', surname: ''}] 
       });
     } catch (err) {
       console.error("Erro ao enviar o formulário", err);
@@ -50,7 +50,7 @@ const CompanyForm = ({ onAddCompany }) => {
         </div>
         <div className="campo">
           <label htmlFor="email">
-            Email
+            Email da empresa
           </label>
           <input
             type="email"
@@ -62,14 +62,53 @@ const CompanyForm = ({ onAddCompany }) => {
           />
         </div>
         <div className="campo">
-          <label htmlFor="phone">
-            Telefone
+          <label htmlFor="na">
+            Nome do contato 1
           </label>
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
+            type="text"
+            id="contact_name_1"
+            name="contact_name_1"
+            value={formData.contacts[0].name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="campo">
+          <label htmlFor="na">
+            Sobrenome do contato 1
+          </label>
+          <input
+            type="text"
+            id="contact_surname_1"
+            name="contact_surname_1"
+            value={formData.contacts[0].surname}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="campo">
+          <label htmlFor="na">
+            Nome do contato 2
+          </label>
+          <input
+            type="text"
+            id="contact_name_2"
+            name="contact_name_2"
+            value={formData.contacts[1].name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="campo">
+          <label htmlFor="na">
+            Sobrenome do contato 2
+          </label>
+          <input
+            type="text"
+            id="contact_surname_2"
+            name="contact_surname_2"
+            value={formData.contacts[1].surname}
             onChange={handleChange}
             required
           />

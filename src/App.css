@@ -65,11 +65,13 @@ input {
   color: #FFF;
   outline: none;
   font-weight: 500;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease-out;
+  height: 35px;
+  width: 70px;
 }
 
 .btn:hover {
@@ -78,17 +80,10 @@ input {
 
 .primary {
   background-color: #222122;
-  height: 50px;
-  width: 100px;
-  font-size: 20px;
-  display: flex;
 }
 
 .delete {
   background-color: rgb(255, 0, 0);
-  height: 30px;
-  width: 30px;
-  border-radius: 5px !important;
 }
 
 .success {
