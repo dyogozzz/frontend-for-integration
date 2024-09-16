@@ -36,12 +36,12 @@ const CompanyForm = ({ onAddCompany }) => {
       <h2 className="mb-4">Criar Empresa/Contato</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="companyName" className="form-label">
+          <label htmlFor="companyName" className="form-label title">
             Nome da Empresa
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control campo"
             id="companyName"
             name="companyName"
             value={formData.companyName}
@@ -77,8 +77,8 @@ const CompanyForm = ({ onAddCompany }) => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Criar Empresa/Contato
+        <button type="submit" className="btn btn-primary button">
+          Criar
         </button>
       </form>
     </div>

@@ -1,8 +1,8 @@
 import './App.css';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect } from 'react';
-import CompanyForm from './components/CompanyForm';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
+import CompanyForm from './components/CompanyForm/CompanyForm.js';
 import CompanyList from './components/CompanyList';
 
 function App() {
@@ -24,9 +24,10 @@ function App() {
 
     return (
         <div>
-            <h1>Grande teste</h1>
-            <CompanyForm onAddCompany={handleAddCompany} />
-            <CompanyList companies={companies} />
+            <main>
+                <CompanyForm onAddCompany={handleAddCompany} />
+                <CompanyList companies={companies} />
+            </main>
         </div>
     );
 }
