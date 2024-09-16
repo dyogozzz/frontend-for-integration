@@ -58,7 +58,8 @@ input {
   font-weight: 600;
 }
 
-.button {
+.btn {
+  margin: 10px 0;
   border: none;
   border-radius: 10px;
   color: #FFF;
@@ -78,7 +79,8 @@ input {
 .primary {
   background-color: #222122;
   height: 50px;
-  width: 50px;
+  width: 100px;
+  font-size: 20px;
   display: flex;
 }
 

@@ -1,11 +1,11 @@
 import React from "react";
 
-const CompanyList = ({ companies }) => {
+const CompanyList = ({ companies, setIsOpen }) => {
   return (
     <div className="container mt-5">
       <h2>Listagem de Empresas/Contatos</h2>
       {companies.length > 0 ? (
-        <table className="table table-striped mt-3">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Nome da Empresa</th>
@@ -26,6 +26,10 @@ const CompanyList = ({ companies }) => {
       ) : (
         <p className="mt-3">Nenhuma empresa cadastrada ainda.</p>
       )}
+      <button onClick={() => setIsOpen(true)} className='btn primary'>
+        Criar
+      </button>
+
     </div>
   );
 };

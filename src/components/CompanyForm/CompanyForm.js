@@ -32,16 +32,15 @@ const CompanyForm = ({ onAddCompany }) => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="title">
       <h2 className="mb-4">Criar Empresa/Contato</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="companyName" className="form-label title">
+        <div className="campo">
+          <label htmlFor="companyName">
             Nome da Empresa
           </label>
           <input
             type="text"
-            className="form-control campo"
             id="companyName"
             name="companyName"
             value={formData.companyName}
@@ -49,13 +48,12 @@ const CompanyForm = ({ onAddCompany }) => {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
+        <div className="campo">
+          <label htmlFor="email">
             Email
           </label>
           <input
             type="email"
-            className="form-control"
             id="email"
             name="email"
             value={formData.email}
@@ -63,13 +61,12 @@ const CompanyForm = ({ onAddCompany }) => {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="phone" className="form-label">
+        <div className="campo">
+          <label htmlFor="phone">
             Telefone
           </label>
           <input
             type="tel"
-            className="form-control"
             id="phone"
             name="phone"
             value={formData.phone}
@@ -77,9 +74,6 @@ const CompanyForm = ({ onAddCompany }) => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary button">
-          Criar
-        </button>
       </form>
     </div>
   );
