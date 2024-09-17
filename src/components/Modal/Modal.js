@@ -8,14 +8,6 @@ const Modal = (props) => {
           {props.children}
           <button onClick={() => props.clickClose(undefined)} className="popup-close">X</button>
         </div>
-        <div className="buttons-form">
-          <button type="submit" className="btn success">
-            Salvar
-          </button>
-          <button onClick={() => props.clickClose(undefined)} type="submit" className="btn cancel">
-            Cancelar
-          </button>
-        </div>
       </div>
     </div>
   )

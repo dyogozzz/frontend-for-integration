@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 
-const CompanyForm = ({ onAddCompany }) => {
-  const [formData, setFormData] = useState({
-    companyName: "",
-    email: "",
-    contacts: [{},{}]
-  });
-
+const CompanyForm = ({ addCompany, handleEditCompany, clickClose, company }) => {
+  const [formData, setFormData] = useState(company);
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -15,35 +11,36 @@ const CompanyForm = ({ onAddCompany }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      const newCompany = { ...formData, id: Math.random().toString() };
+      const newCompany = { ...formData };
+      
+      if(newCompany.ID) {
+        await handleEditCompany(newCompany)
+      } else {
+        await addCompany(newCompany)
+      }
 
-      onAddCompany(newCompany);
-
-      setFormData({
-        companyName: "",
-        email: "",
-        contacts: [{name: '', surname: ''},{name: '', surname: ''}] 
-      });
     } catch (err) {
-      console.error("Erro ao enviar o formulário", err);
+      console.error("Erro ao enviar o formulário", err)
+    } finally {
+      setFormData({})
     }
   };
 
   return (
     <div className="title">
-      <h2 className="mb-4">Criar Empresa/Contato</h2>
+      <h2>{formData.ID ? 'Editar' : 'Criar'} Empresa/Contato</h2>
       <form onSubmit={handleSubmit}>
         <div className="campo">
-          <label htmlFor="companyName">
+          <label htmlFor="company_name">
             Nome da Empresa
           </label>
           <input
             type="text"
-            id="companyName"
-            name="companyName"
-            value={formData.companyName}
+            id="company_name"
+            name="company_name"
+            value={formData.company_name ? formData.company_name : undefined}
             onChange={handleChange}
             required
           />
@@ -56,62 +53,66 @@ const CompanyForm = ({ onAddCompany }) => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            value={formData.email ? formData.email : undefined}
             onChange={handleChange}
             required
           />
         </div>
         <div className="campo">
-          <label htmlFor="na">
+          <label>
             Nome do contato 1
           </label>
           <input
             type="text"
             id="contact_name_1"
             name="contact_name_1"
-            value={formData.contacts[0].name}
+            value={formData.contact_name_1 ? formData.contact_name_1 : undefined}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="campo">
-          <label htmlFor="na">
+          <label>
             Sobrenome do contato 1
           </label>
           <input
             type="text"
-            id="contact_surname_1"
-            name="contact_surname_1"
-            value={formData.contacts[0].surname}
+            id="contact_second_name_1"
+            name="contact_second_name_1"
+            value={formData.contact_second_name_1 ? formData.contact_second_name_1 : undefined}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="campo">
-          <label htmlFor="na">
+          <label>
             Nome do contato 2
           </label>
           <input
             type="text"
             id="contact_name_2"
             name="contact_name_2"
-            value={formData.contacts[1].name}
+            value={formData.contact_name_2 ? formData.contact_name_2 : undefined}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="campo">
-          <label htmlFor="na">
+          <label>
             Sobrenome do contato 2
           </label>
           <input
             type="text"
-            id="contact_surname_2"
-            name="contact_surname_2"
-            value={formData.contacts[1].surname}
+            id="contact_second_name_2"
+            name="contact_second_name_2"
+            value={formData.contact_second_name_2 ? formData.contact_second_name_2 : undefined}
             onChange={handleChange}
-            required
           />
+        </div>
+        <div className="buttons-form">
+          <button type="submit" className="btn success">
+            Salvar
+          </button>
+          <button onClick={() => clickClose(undefined)} type="submit" className="btn cancel">
+            Cancelar
+          </button>
         </div>
       </form>
     </div>

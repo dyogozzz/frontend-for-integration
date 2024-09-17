@@ -102,13 +102,6 @@ input {
   border-radius: 7px;
 }
 
-.edit {
-  background-color: #353b3d;
-  height: 30px;
-  width: 30px;
-  border-radius: 5px !important;
-}
-
 .buttons-form {
   display: flex;
   margin-top: 30px;

@@ -6,7 +6,7 @@ const ModalForm = (props) => {
     <div>
       {props.isOpen ?
         <Modal clickClose={props.setIsOpen}>
-            <CompanyForm onAddCompany={props.handleAddCompany} />
+            <CompanyForm handleEditCompany={props.handleEditCompany} company={props.company} clickClose={props.setIsOpen} addCompany={props.addCompany} />
         </Modal>
         :
         undefined

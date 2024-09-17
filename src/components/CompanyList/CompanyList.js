@@ -1,6 +1,6 @@
 import React from "react";
 
-const CompanyList = ({ companies, setIsOpen }) => {
+const CompanyList = ({ companies, setIsOpen, setEditingCompany, handleDeleteCompany }) => {
   return (
     <div>
       <h2>Listagem de Empresas</h2>
@@ -22,20 +22,20 @@ const CompanyList = ({ companies, setIsOpen }) => {
                 <td>{company.TITLE}</td>
                 <td>{company.email}</td>
                 <td>
-                  {company.contacts.map((contact) => {
+                  {company.contacts ? company.contacts.map((contact) => {
                     return(
                       <div>
-                        {contact.NAME + ' ' + contact.LAST_NAME}
+                        {contact.NAME + (contact.LAST_NAME ? ' ' + contact.LAST_NAME : '')}
                       </div>
                     )
-                  })} 
+                  }) : undefined} 
                 </td>
                 <td>
                   <div className="btn-grouper">
-                    <button className="btn primary">
+                    <button onClick={() => setEditingCompany(company)} className="btn primary">
                       Editar
                     </button>
-                    <button className="btn delete">
+                    <button onClick={() => handleDeleteCompany(company)} className="btn delete">
                       Excluir
                     </button>
                   </div>
